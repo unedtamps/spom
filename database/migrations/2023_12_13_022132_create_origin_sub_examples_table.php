@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('memes', function (Blueprint $table) {
-            $table->id();
-            $table->string("title");
-            $table->string("pics", 1024);
-            $table->bigInteger("user_id")->unsigned();
-            $table->string("caption")->nullable();
-            $table->integer("likes")->default(0);
-            $table->integer("dislikes")->default(0);
+        Schema::create('origin_sub_examples', function (Blueprint $table) {
+            $table->string('example', 64);
+            $table->bigInteger('origin_submission_id')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('origin_submission_id')->references('id')->on('origin_submissions')->cascadeOnDelete();
         });
     }
 
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('memes');
+        Schema::dropIfExists('origin_sub_examples');
     }
 };

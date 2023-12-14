@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('origin_submissions', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('origin_id')->unsigned();
-            $table->string('tags', 1024);
+            $table->bigInteger('origin_id')->unsigned()->nullable();
             $table->text('about');
-            $table->text('example');
             $table->longText('origin_story');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

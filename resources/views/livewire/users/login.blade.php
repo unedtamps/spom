@@ -1,7 +1,9 @@
 <div>
-    @error('credentials')
-       <div class="bg-red-600">{{ $message }}</div> 
-    @enderror
+    @if (session('error'))
+        <div>
+            Error: {{ session('error') }}
+        </div>
+    @endif
     <form wire:submit="login">
         <label for="email">Email</label>
         <input type="email" id="email" wire:model='form.email'>

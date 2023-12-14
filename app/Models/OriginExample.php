@@ -6,18 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Meme extends Model
+class OriginExample extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title',
-        'pics',
-        'user_id',
-        'caption',
-        'likes',
-        'dislikes',
+        'origin_id',
+        'example',
     ];
-    public function user(): BelongsTo{
-        return $this->belongsTo(User::class, 'user_id');
+    public function origin(): BelongsTo
+    {
+        return $this->belongsTo(OriginMeme::class, 'origin_id');
     }
 }

@@ -19,9 +19,7 @@ class OriginMemeFactory extends Factory
     {
         return [
             'name' => fake()->text(30),
-            'tags' => Str::random(10),
             'about' => fake()->realText(400),
-            'example' => fake()->url(),
             'origin_story' => fake()->realText(800),
         ];
     }

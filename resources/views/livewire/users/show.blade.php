@@ -1,3 +1,3 @@
 <div>
-    <div>{{ $user->name }}</div>
+    <div>{{ $user->memes}}</div>
 </div>

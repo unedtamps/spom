@@ -19,6 +19,7 @@ class MemeFactory extends Factory
     {
         return [
             'title' => fake()->realText(50),
+            'caption' => fake()->realText(100),
             'pics' => fake()->url(),
             'user_id' => rand(1,10),
             'likes' => rand(1,10000),

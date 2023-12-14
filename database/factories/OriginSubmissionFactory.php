@@ -18,9 +18,8 @@ class OriginSubmissionFactory extends Factory
     public function definition(): array
     {
         return [
-            'tags' => Str::random(10),
+            'name' => fake()->realText(10),
             'about' => fake()->realText(400),
-            'example' => fake()->url(),
             'origin_story' => fake()->realText(800),
             'user_id' => rand(1,10),
             'origin_id' => rand(1,10)
