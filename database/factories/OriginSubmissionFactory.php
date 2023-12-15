@@ -21,6 +21,7 @@ class OriginSubmissionFactory extends Factory
             'name' => fake()->realText(10),
             'about' => fake()->realText(400),
             'origin_story' => fake()->realText(800),
+            'spread' => fake()->realText(800),
             'user_id' => rand(1,10),
             'origin_id' => rand(1,10)
         ];

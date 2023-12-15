@@ -12,6 +12,7 @@ class OriginMeme extends Model
     protected $fillable = [
         'name',
         'about',
+        'spread',
         'origin_story',
     ];
     public function contributors(): HasMany

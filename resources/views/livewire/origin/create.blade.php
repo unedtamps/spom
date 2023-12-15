@@ -15,12 +15,6 @@
                 <div class="block text-sm text-red-400 error">{{ $message }}</div>
             @enderror
         </label>
-        <label class="block" for="tags">Tags
-            <input id="tags" class="bg-slate-500" placeholder="tags" type="text" wire:model='form.tags'>
-            @error('form.tags')
-                <div class="block text-sm text-red-400 error">{{ $message }}</div>
-            @enderror
-        </label>
         <textarea class="block" placeholder="about the origin" name="about" wire:model='form.about' id=""
             cols="30" rows="10"></textarea>
         @error('form.about')
@@ -31,6 +25,13 @@
         @error('form.origin_story')
             <div class="block text-sm text-red-400 error">{{ $message }}</div>
         @enderror
+        <label class="block" for="spread">Tags
+            <textarea class="block" placeholder="Spread" name="spread" wire:model='form.spread' id=""
+                cols="30" rows="10"></textarea>
+            @error('form.spread')
+                <div class="block text-sm text-red-400 error">{{ $message }}</div>
+            @enderror
+        </label>
 
         <label for="example">Example Meme</label>
         <input type="file" id="example" wire:model='form.example' multiple>

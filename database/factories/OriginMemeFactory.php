@@ -21,6 +21,8 @@ class OriginMemeFactory extends Factory
             'name' => fake()->text(30),
             'about' => fake()->realText(400),
             'origin_story' => fake()->realText(800),
+            'spread' => fake()->realText(800),
+            
         ];
     }
 }

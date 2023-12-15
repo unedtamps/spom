@@ -42,6 +42,7 @@ class Create extends Component
             $sub = OriginSubmission::create([
                 'name' => $this->form->name,
                 'about' => $this->form->about,
+                'spread' => $this->form->spread,
                 'origin_story' => $this->form->origin_story,
                 'user_id' => $this->user->id,
                 'origin_id' => $origin->id

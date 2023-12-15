@@ -13,6 +13,7 @@ class OriginSubmission extends Model
     protected $fillable = [
         'name',
         'about',
+        'spread',
         'origin_story',
         'origin_id',
         'user_id'

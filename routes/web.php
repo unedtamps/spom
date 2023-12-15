@@ -65,6 +65,5 @@ Route::middleware(['guest.user'])->group(function () {
 });
 
 Route::fallback(function () {
-    if (Auth::check()) return redirect(route('home'));
-    else return redirect(route('login'));
+    return redirect(route('login'));
 });

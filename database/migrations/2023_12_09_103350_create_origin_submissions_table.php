@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('origin_id')->unsigned()->nullable();
             $table->text('about');
             $table->longText('origin_story');
+            $table->longText('spread');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();

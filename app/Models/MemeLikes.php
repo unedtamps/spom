@@ -17,6 +17,6 @@ class MemeLikes extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
     public function meme(): BelongsTo{
-        return $this->belongsTo(Meme::class, 'meme_d');
+        return $this->belongsTo(Meme::class, 'meme_id');
     }
 }

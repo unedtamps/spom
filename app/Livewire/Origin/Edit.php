@@ -28,6 +28,7 @@ class Edit extends Component
         $this->form->name = $this->origin->name;
         $this->form->about = $this->origin->about;
         $this->form->origin_story = $this->origin->origin_story;
+        $this->form->spread = $this->origin->origin->spread;
     }
 
     public function save()
@@ -39,6 +40,7 @@ class Edit extends Component
             $sub = OriginSubmission::create([
                 'name' => $this->form->name,
                 'about' => $this->form->about,
+                'spread' => $this->form->spread,
                 'origin_story' => $this->form->origin_story,
                 'user_id' => Auth::id(),
                 'origin_id' => $this->origin->id

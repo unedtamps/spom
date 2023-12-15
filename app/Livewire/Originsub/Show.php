@@ -48,6 +48,7 @@ class Show extends Component
                 [
                     'name' => $ogs->name,
                     'about' => $ogs->about,
+                    'spread' => $ogs->spread,
                     'origin_story' => $ogs->origin_story
                 ]
             );

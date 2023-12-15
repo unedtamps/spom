@@ -15,4 +15,6 @@ class OriginForm extends Form
     public $example = [];
     #[Validate('required|min:8')]
     public $origin_story;
+    #[Validate('required|min:8')]
+    public $spread = ' ';
 }

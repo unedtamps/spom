@@ -8,10 +8,8 @@ use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use App\Livewire\Forms\MemeForm;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
-use function Laravel\Prompts\error;
 
 class Edit extends Component
 {

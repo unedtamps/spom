@@ -1,9 +1,9 @@
 @props(['active' => false])
 
 @php
-    $class = $active ? 'text-gray-900' : 'text-gray-500';
+    $class = $active ? 'active' : '';
 @endphp
 
-<li class='list-none bg-slate-100'>
+<li>
     <a wire:navigate {{ $attributes->merge(['class' => $class]) }}>{{ $slot }}</a>
 </li>

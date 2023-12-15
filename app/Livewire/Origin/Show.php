@@ -8,12 +8,13 @@ use Livewire\WithPagination;
 
 class Show extends Component
 {
-    use WithPagination;
+    public $origin;
+    public function mount(){
+        
+        $this->origin = OriginMeme::orderBy('updated_at', 'desc')->get();
+    }
     public function render()
     {
-        $origin = OriginMeme::orderBy('updated_at', 'desc')->paginate(10);
-        return view('livewire.origin.show', [
-            'origin' => $origin,
-        ]);
+        return view('livewire.origin.show');
     }
 }

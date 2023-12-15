@@ -21,16 +21,23 @@ class Show extends Component
             } catch (\Throwable $th) {
                 abort(500, "Server Down " . $th);
             }
-            return ;
+            return;
         }
         return abort(403, 'This is Not Your Meme');
     }
+    public function paginationView()
+    {
+        return 'vendor.livewire.bootstrap';
+    }
+    #
 
     public function render()
     {
+        $meme_trend = Meme::orderBy('likes', 'DESC')->take(5)->get();
         $memes = Meme::orderBy('updated_at', 'DESC')->paginate(10);
-        return view('livewire.meme.show',[
-            'memes' => $memes
+        return view('livewire.meme.show', [
+            'memes' => $memes,
+            'trends' => $meme_trend
         ]);
     }
 }
