@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         OriginMeme::factory(10)->create();
         Meme::factory(20)->create();
-        Contributor::factory(100)->create();
+        // Contributor::factory(100);
         UserDetail::factory(10)->create();
         MemeLikes::factory(20)->create();
         OriginSubmission::factory(20)->create();
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'admin',
             'username' => 'admin',
-            'email' => 'unedo@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => 'admin123',
             'role' => 'ADMIN',
         ]);

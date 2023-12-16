@@ -8,6 +8,8 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="css/app.css">
+    @stack('scripts')
+    @livewireScripts
 </head>
 
 <body>
@@ -16,16 +18,14 @@
             <h2 class="log">
                 {{ config('app.name') }}
             </h2>
-            <div class="search-bar">
-                <i class="uil uil-search"></i>
-                <input type="search" placeholder="Search for creators, inspiration, and projects">
-            </div>
-            <div class="create">
-                <div class="profile-photo">
-                    <img src="{{ Auth::user()->profile_pic }}" alt="">
+            <livewire:search>
+                <div class="create">
+                    <div class="profile-photo">
+                        <a wire:navigate href="/user/{{ Auth::id() }}"></a><img src="{{ Auth::user()->profile_pic }}"
+                            alt="">
+                    </div>
+                    <livewire:users.logout>
                 </div>
-                <livewire:users.logout>
-            </div>
         </div>
     </nav>
     <main>

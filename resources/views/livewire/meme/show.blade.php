@@ -36,7 +36,7 @@
 
                 <div class="action-buttons">
                     <div class="interaction-button">
-                        <button wire:click='' class="btn btn-success">Like</button>
+                        <livewire:meme.like :meme='$meme'>
                         @if (Auth::id() == $meme->user_id)
                             <button wire:click='del({{ $meme }})'
                                 wire:confirm='Are you sure to delete {{ $meme->title }}'

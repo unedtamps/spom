@@ -16,9 +16,11 @@ class ContributorFactory extends Factory
      */
     public function definition(): array
     {
+        $user_id = rand(1,10);
+        $orign_id = rand(1,10);
         return [
-            'user_id' => rand(1,10),
-            'origin_id' => rand(1,10)
+            'user_id' => $user_id,
+            'origin_id' => $orign_id,
         ];
     }
 }

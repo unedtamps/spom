@@ -1,5 +1,5 @@
     <div class="left">
-        <a class="profile">
+        <a wire:navigate href="/user/{{ Auth::id() }}" class="profile">
             <div class="profile-photo">
                 <img src="/storage/user/{{ Auth::user()->profile_pic }}" alt="">
             </div>
