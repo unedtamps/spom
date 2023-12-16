@@ -10,12 +10,14 @@ class UserDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'meme_posted',
         'origin_created',
         'origin_denied',
         'origin_accepted',
         'meme_likes',
     ];
+    protected $primaryKey = 'user_id';
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');

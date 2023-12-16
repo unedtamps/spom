@@ -28,7 +28,7 @@ class Edit extends Component
         $this->form->name = $this->origin->name;
         $this->form->about = $this->origin->about;
         $this->form->origin_story = $this->origin->origin_story;
-        $this->form->spread = $this->origin->origin->spread;
+        $this->form->spread = $this->origin->spread;
     }
 
     public function save()

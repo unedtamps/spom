@@ -18,7 +18,7 @@ class UserDetailFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => fake()->unique()->numberBetween(1,10),
+            'user_id' => fake()->unique()->numberBetween(1,11),
             'meme_posted' => rand(1,100),
             'origin_created' => rand(1,100),
             'origin_accepted' =>rand(1,10),

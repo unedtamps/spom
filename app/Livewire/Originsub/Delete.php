@@ -22,9 +22,12 @@ class Delete extends Component
                 Storage::delete('public/origin/' . $ex->example);
             }
             $this->og->delete();
+            $this->og->user->detail->origin_denied++;
+            $this->og->user->detail->save();
             DB::commit();
             session()->flash('success', 'success deleted' . $this->og->name);
         } catch (\Throwable $th) {
+            DB::rollBack();
             session()->flash('error', $th);
         }
         $this->redirect(route('origin-sub'));

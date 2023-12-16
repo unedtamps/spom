@@ -55,10 +55,12 @@ class Create extends Component
                     'origin_submission_id' => $sub->id
                 ]);
             }
+            $this->user->detail->origin_created++;
+            $this->user->detail->save();
             DB::commit();
             return redirect(route('home'))->with('success', 'Success Created A Submission to Origin');
         } catch (\Throwable $th) {
-            return session()->flash('error', $th);
+            return session()->flash('error', $th->getMessage());
         }
     }
 

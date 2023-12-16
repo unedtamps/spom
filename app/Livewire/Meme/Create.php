@@ -38,11 +38,13 @@ class Create extends Component
                     'caption' => $this->form->caption,
                 ]
             );
+            $this->user->detail->meme_posted++;
             $this->form->pic = null;
+            $this->user->detail->save();
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
-            return session()->flash('error', 'Cannot create meme');
+            return session()->flash('error', $th->getMessage());
         }
         return redirect(route('home'))->with('success', 'Success Created A meme');
     }

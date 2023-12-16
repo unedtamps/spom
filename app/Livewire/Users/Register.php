@@ -4,6 +4,7 @@ namespace App\Livewire\Users;
 
 use App\Livewire\Forms\RegisterForm;
 use App\Models\User;
+use App\Models\UserDetail;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
@@ -13,15 +14,20 @@ class Register extends Component
 {
 
     public RegisterForm $form;
-    public function create(){
+    public function create()
+    {
         $this->validate();
 
-        User::create(
+        $user = User::create(
             $this->form->all()
         );
+        error_log($user);
+        UserDetail::create([
+            'user_id' => $user->id,
+        ]);
         $this->redirect(route('login'));
     }
-    
+
     public function render()
     {
         return view('livewire.users.register');

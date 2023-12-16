@@ -39,6 +39,8 @@ class Accepted extends Component
                 ]);
             }
             DB::beginTransaction();
+            $this->og->user->detail->origin_accepted++;
+            $this->og->user->detail->save();
             $this->og->delete();
             DB::commit();
             session()->flash('success', 'success accepted' . $this->og->name);

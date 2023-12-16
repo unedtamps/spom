@@ -25,6 +25,8 @@
         @error('form.origin_story')
             <div class="block text-sm text-red-400 error">{{ $message }}</div>
         @enderror
+        <textarea class="block" placeholder="spread" name="spread" wire:model='form.spread' id=""
+            cols="30" rows="10"></textarea>
 
         <label for="example">Example Meme</label>
         <input type="file" id="example" wire:model='form.example' multiple>
