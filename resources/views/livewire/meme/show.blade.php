@@ -34,18 +34,13 @@
                     <img src="/storage/meme/{{ $meme->pics }}" alt="">
                 </div>
 
-                <div class="action-buttons">
+                <div  class="action-buttons">
                     <div class="interaction-button">
-                        <livewire:meme.like :meme='$meme'>
+                       <livewire:meme.like :meme='$meme'>
                         @if (Auth::id() == $meme->user_id)
-                            <button wire:click='del({{ $meme }})'
-                                wire:confirm='Are you sure to delete {{ $meme->title }}'
-                                class="btn btn-logout">Delete</button>
+                            <livewire:meme.delete :meme='$meme'>
                             <a wire:navigate href="/update-meme/{{ $meme->id }}"><button class="btn btn-second">Edit</button></a>
                         @endif
-                    </div>
-                    <div class="bookmark">
-                        <span><i class="uil uil-bookmark"></i></span>
                     </div>
                 </div>
                 <div class="liked-by">
@@ -63,12 +58,7 @@
                     @endif
                 </p>
             </div>
-            {{-- <div class="caption">
-                <p><b>{{ $meme->user->name }}</b>{{ $meme->caption }}</p>
-            </div> --}}
-            {{-- <div class="comments text-muted">View all 107 comments</div> --}}
         </div>
     @endforeach
 </div>
 <button class="btn">Disini PaginasiNya</button>
-{{-- <div>{{ $memes }}</div> --}}

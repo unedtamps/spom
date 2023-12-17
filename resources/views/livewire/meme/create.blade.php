@@ -1,8 +1,12 @@
 <div>
 
     @if (session('error'))
-        <div>
-            Error: {{ session('error') }}
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @elseif (session('success'))
+        <div class="alert alert-sucess">
+            {{ session('success') }}
         </div>
     @endif
     <form wire:submit='save'>

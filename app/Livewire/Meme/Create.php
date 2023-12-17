@@ -33,7 +33,7 @@ class Create extends Component
             Meme::create(
                 [
                     'title' => $this->form->title,
-                    'pics' => $file_name . '.'. $extension,
+                    'pics' => $file_name . '.' . $extension,
                     'user_id' => $this->user->id,
                     'caption' => $this->form->caption,
                 ]
@@ -46,12 +46,13 @@ class Create extends Component
             DB::rollBack();
             return session()->flash('error', $th->getMessage());
         }
-        return redirect(route('home'))->with('success', 'Success Created A meme');
+        return session()->flash('success', 'success create meme');
     }
 
     public function render()
     {
-        if (Auth::check() && $this->user->id === Auth::user()->id) {
+        error_log($this->user);
+        if (Auth::check() && $this->user->id === Auth::id()) {
             return view('livewire.meme.create');
         } else {
             abort(403, 'Unauthorized. You do not have permission to perform this action');

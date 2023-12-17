@@ -54,7 +54,7 @@ class Edit extends Component
                 ]);
             }
             DB::commit();
-            return redirect(route('home'))->with('success', 'Success Edited A Origin');
+            return redirect(route('origin'))->with('success', 'Success Edited A Origin');
         } catch (\Throwable $th) {
             return session()->flash('error', $th);
         }

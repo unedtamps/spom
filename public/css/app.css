@@ -453,6 +453,7 @@ main .container .left .profile {
 }
 .middle .feed .action-buttons .interaction-button{
     display: flex;
+    gap: 1rem;
 }
 
 .middle .liked-by {

@@ -10,32 +10,15 @@ use Livewire\Component;
 class Show extends Component
 {
     public $opne = false;
-    public function del(Meme $meme)
+    public $trends;
+    public $memes;
+    public function mount()
     {
-        if (Auth::check() && Auth::id() == $meme->user_id) {
-            try {
-                $meme->delete();
-                Storage::delete('public/meme/' . $meme->pics);
-            } catch (\Throwable $th) {
-                abort(500, "Server Down " . $th);
-            }
-            return;
-        }
-        return abort(403, 'This is Not Your Meme');
+        $this->trends = Meme::orderBy('likes', 'DESC')->take(5)->get();
+        $this->memes = Meme::orderBy('updated_at', 'DESC')->get();
     }
-    public function paginationView()
-    {
-        return 'vendor.livewire.bootstrap';
-    }
-    #
-
     public function render()
     {
-        $meme_trend = Meme::orderBy('likes', 'DESC')->take(5)->get();
-        $memes = Meme::orderBy('updated_at', 'DESC')->take(5)->get();
-        return view('livewire.meme.show', [
-            'memes' => $memes,
-            'trends' => $meme_trend
-        ]);
+        return view('livewire.meme.show');
     }
 }

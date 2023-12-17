@@ -12,7 +12,7 @@
         <div class="form-input">
             <label class="" for="name">
                 <h3>Name</h3>
-                <input class="input-name" placeholder="name" id="name" type="text" wire:model='form.name'>
+                <input class="input-name" placeholder="name" id="name" type="text" cols="10" rows="30" wire:model='form.name'>
                 @error('form.name')
                     <div class="error-input">{{ $message }}</div>
                 @enderror
@@ -20,9 +20,7 @@
             <label for="about">
                 <h3>About</h3>
             </label>
-            <div wire:ignore>
-                <textarea class="" placeholder="" name="about" wire:model='form.about' id="about"></textarea>
-            </div>
+            <textarea class="" placeholder="" name="about" wire:model='form.about' id="about" cols="10" rows="20"></textarea>
             @error('form.about')
                 <div class="error-input">{{ $message }}</div>
             @enderror
@@ -30,9 +28,7 @@
             <label for="origin_story">
                 <h3>Origin Story</h3>
             </label>
-            <div wire:ignore>
-                <textarea name="origin_story" wire:model='form.origin_story' id="origin_story"></textarea>
-            </div>
+            <textarea name="origin_story" wire:model='form.origin_story' id="origin_story" cols="10" rows="20"></textarea>
             @error('form.origin_story')
                 <div class="error-input">{{ $message }}</div>
             @enderror
@@ -40,9 +36,7 @@
             <label for="spread">
                 <h3>Spread</h3>
             </label>
-            <div wire:ignore>
-                <textarea class="" placeholder="" name="spread" wire:model='form.spread' id="spread"></textarea>
-            </div>
+            <textarea class="" placeholder="" name="spread" wire:model='form.spread' id="spread" cols="10" rows="20"></textarea>
             @error('form.spread')
                 <div class="error-input">{{ $message }}</div>
             @enderror
@@ -65,7 +59,7 @@
 </div>
 
 @push('scripts')
-    <script>
+    {{-- <script>
         $('#spread').summernote('code', @json($form->spread));
         $('#about').summernote('code', @json($form->about))
         $('#origin_story').summernote('code', @json($form->origin_story))
@@ -126,5 +120,5 @@
                 },
             }
         });
-    </script>
+    </script> --}}
 @endpush
