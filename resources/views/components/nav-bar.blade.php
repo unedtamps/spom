@@ -17,16 +17,12 @@
                 <h3>Home</h3>
             </x-nav-link>
             <x-nav-link class="menu-item" :active="request()->routeIs('origin')" href="{{ route('origin') }}">
-                <span><i class="uil uil-compass"></i></span>
+                <span><i class="uil uil-book-alt"></i></span>
                 <h3>Origin</h3>
             </x-nav-link>
             <a class="menu-item">
                 <span><i class="uil uil-compass"></i></span>
                 <h3>Explore</h3>
-            </a>
-            <a class="menu-item">
-                <span><i class="uil uil-bookmark"></i></span>
-                <h3>Bookmarks</h3>
             </a>
             @if (Auth::user()->role == 'admin')
                 <x-nav-link class="menu-item" :active="request()->routeIs('origin-sub')" href="{{ route('origin-sub') }}">

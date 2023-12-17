@@ -3,8 +3,6 @@
 namespace App\Livewire\Meme;
 
 use App\Models\Meme;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class Show extends Component

@@ -29,7 +29,7 @@
                 </div>
                 <div>
                     <a wire:navigate href="/origin-edit/{{ $og->id }}"><button
-                            class="btn btn-primary">Edit</button></a>
+                            class="btn btn-primary" style="margin-bottom: 1rem;">Contribute</button></a>
                     <h4>Contributors :
                         @foreach ($og->contributors as $oc)
                             <i>{{ '@' . $oc->user->username . '  ' }}</i>

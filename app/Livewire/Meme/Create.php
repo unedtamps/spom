@@ -46,12 +46,11 @@ class Create extends Component
             DB::rollBack();
             return session()->flash('error', $th->getMessage());
         }
-        return session()->flash('success', 'success create meme');
+        return redirect(route('home'));
     }
 
     public function render()
     {
-        error_log($this->user);
         if (Auth::check() && $this->user->id === Auth::id()) {
             return view('livewire.meme.create');
         } else {

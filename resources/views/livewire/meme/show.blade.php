@@ -1,4 +1,4 @@
-<div>
+<div wire:key='$refreshState'>
     <div class="stories">
         @foreach ($trends as $t)
             <div style="background: url({{ config('app.url') }}/storage/meme/{{ $t->pics }}) no-repeat center center/cover;"
@@ -36,9 +36,9 @@
 
                 <div  class="action-buttons">
                     <div class="interaction-button">
-                       <livewire:meme.like :meme='$meme'>
+                       <livewire:meme.like :meme='$meme' wire:key='{{ $key }}'>
                         @if (Auth::id() == $meme->user_id)
-                            <livewire:meme.delete :meme='$meme'>
+                            <livewire:meme.delete :meme='$meme' wire:key='{{ $key }}'>
                             <a wire:navigate href="/update-meme/{{ $meme->id }}"><button class="btn btn-second">Edit</button></a>
                         @endif
                     </div>

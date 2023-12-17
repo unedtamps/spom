@@ -39,3 +39,9 @@
         </div>
     </div>
 </div>
+
+
+@push('styles')
+    <link rel="stylesheet" href="css/app.css">
+    @livewireStyles
+@endpush

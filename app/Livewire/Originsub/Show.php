@@ -10,8 +10,6 @@ use Livewire\Component;
 use App\Models\OriginSubmission;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 
 class Show extends Component
@@ -23,7 +21,7 @@ class Show extends Component
     public $total_user;
     public function mount()
     {
-        $this->ogsub = OriginSubmission::all();
+        $this->ogsub = OriginSubmission::orderBy('updated_at', 'DESC')->get();
         $this->total_meme = Meme::count();
         $this->total_origin = OriginMeme::count();
         $this->total_user = User::count();

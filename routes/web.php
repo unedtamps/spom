@@ -43,6 +43,7 @@ Route::get('/testing', function () {
 Route::middleware(['auth.user'])->group(function () {
     Route::get("/user/{user}", App\Livewire\Users\Show::class);
     Route::get("/create-meme/{user}", MemeCreate::class)->name('create-meme');
+    Route::get("/meme/{meme}", App\Livewire\Meme\Showdetails::class)->name('meme-details');
     Route::get("/update-meme/{meme}", App\Livewire\Meme\Edit::class)->name('update-meme');
     Route::get("/", Home::class)->name('home');
     Route::get("/create-origin/{user}", App\Livewire\Origin\Create::class)->name('create-origin');
