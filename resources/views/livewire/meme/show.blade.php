@@ -34,13 +34,14 @@
                     <img src="/storage/meme/{{ $meme->pics }}" alt="">
                 </div>
 
-                <div  class="action-buttons">
+                <div class="action-buttons">
                     <div class="interaction-button">
-                       <livewire:meme.like :meme='$meme' wire:key='{{ $key }}'>
-                        @if (Auth::id() == $meme->user_id)
-                            <livewire:meme.delete :meme='$meme' wire:key='{{ $key }}'>
-                            <a wire:navigate href="/update-meme/{{ $meme->id }}"><button class="btn btn-second">Edit</button></a>
-                        @endif
+                        <livewire:meme.like :meme='$meme' wire:key='{{ $key }}'>
+                            @if (Auth::id() == $meme->user_id)
+                                <livewire:meme.delete :meme='$meme' wire:key='{{ $key }}'>
+                                    <a wire:navigate href="/update-meme/{{ $meme->id }}"><button
+                                            class="btn btn-second">Edit</button></a>
+                            @endif
                     </div>
                 </div>
                 <div class="liked-by">
@@ -60,5 +61,11 @@
             </div>
         </div>
     @endforeach
+    
+    @if ($page != 0)
+        <a wire:navigate href="{{ route('home', ['page' => $page-1]) }}"><button class="btn btn-second">Previous</button></a>
+    @endif
+    @if(count($memes) >= 5)
+    <a wire:navigate href="{{ route('home', ['page' => $page+1]) }}"><button class="btn btn-primary">Next</button></a>
+    @endif
 </div>
-<button class="btn">Disini PaginasiNya</button>

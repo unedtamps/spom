@@ -70,7 +70,49 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-
+            $('#about').summernote({
+                placeholder: '',
+                tabsize: 2,
+                height: 200,
+                code: @json($form->origin_story),
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link', 'picture']],
+                    ['view', ['codeview', 'help']]
+                ],
+                callbacks: {
+                    onChange: function(contents, $editable) {
+                        @this.set('form.about', contents)
+                    },
+                }
+            }).summernote('code', @json($form->about));
+        })
+        $(document).ready(function() {
+            $('#origin_story').summernote({
+                placeholder: '',
+                tabsize: 2,
+                height: 200,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link', 'picture']],
+                    ['view', ['codeview', 'help']]
+                ],
+                callbacks: {
+                    onChange: function(contents, $editable) {
+                        @this.set('form.origin_story', contents)
+                    },
+                }
+            }).summernote('code', @json($form->origin_story));
+        })
+        $(document).ready(function() {
             $('#spread').summernote({
                 placeholder: '',
                 tabsize: 2,
@@ -92,47 +134,6 @@
                 }
             }).summernote('code', @json($form->spread));
 
-            $('#about').summernote({
-                placeholder: '',
-                tabsize: 2,
-                height: 200,
-                code: @json($form->origin_story),
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['link', 'picture']],
-                    ['view', ['codeview', 'help']]
-                ],
-                callbacks: {
-                    onChange: function(contents, $editable) {
-                        @this.set('form.about', contents)
-                    },
-                }
-            }).summernote('code', @json($form->about));
-
-
-            $('#origin_story').summernote({
-                placeholder: '',
-                tabsize: 2,
-                height: 200,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['link', 'picture']],
-                    ['view', ['codeview', 'help']]
-                ],
-                callbacks: {
-                    onChange: function(contents, $editable) {
-                        @this.set('form.origin_story', contents)
-                    },
-                }
-            }).summernote('code', @json($form->origin_story));
         })
     </script>
 @endpush
