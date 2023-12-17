@@ -31,6 +31,7 @@ class Create extends Component
             $this->form->name = $origin->name;
             $this->form->about = $origin->about;
             $this->form->origin_story = $origin->story;
+            $this->form->spread = $origin->spread;
         }
     }
 

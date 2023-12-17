@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('origin_id')->unsigned()->nullable();
-            $table->text('about');
+            $table->longText('about');
             $table->longText('origin_story');
             $table->longText('spread');
             $table->timestamp('created_at')->useCurrent();

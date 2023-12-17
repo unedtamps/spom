@@ -12,11 +12,11 @@
 
             <div>
                 <h2>About</h2>
-                {{ $ogs->about }}
+                {!! $ogs->about !!}
                 <h2>Origin Story</h2>
-                {{ $ogs->origin_story }}
+                {!! $ogs->origin_story !!}
                 <h2>Spread</h2>
-                {{ $ogs->spread }}
+                {!! $ogs->spread !!}
             </div>
             <div class="origin-example">
                 <h2>Example</h2>
@@ -34,8 +34,7 @@
                             <a wire:navigate href="/origin/{{ $ogs->origins->id }}"><button
                                     class="btn btn-primary">Origin</button></a>
                         @endif
-                        <a wire:navigate href="/origin-sub"><button
-                                class="btn btn-second">Back</button></a>
+                        <a wire:navigate href="/origin-sub"><button class="btn btn-second">Back</button></a>
             </div>
         </div>
     </div>

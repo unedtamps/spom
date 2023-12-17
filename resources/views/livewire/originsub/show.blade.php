@@ -47,11 +47,14 @@
                         <small>
                             {{ (new DateTime($og->updated_at))->format('d F Y h:i A') }}
                         </small>
-                        <p style="margin-top: 0.4rem"><a style="background: #5FBDFF; padding: 0.2rem 1rem 0.2rem 1rem;border-radius: 1rem;" wire:navigate href="/user/{{ $og->user->id }}">{{ '@' . $og->user->username }}</a></p>
+                        <p style="margin-top: 0.4rem"><a
+                                style="background: #5FBDFF; padding: 0.2rem 1rem 0.2rem 1rem;border-radius: 1rem;"
+                                wire:navigate href="/user/{{ $og->user->id }}">{{ '@' . $og->user->username }}</a></p>
                     </div>
                     <h2>About</h2>
-                    <p>{{ $og->about }}</p>
-                    <div style="display: flex;flex-wrap: wrap;gap: 1rem; margin: 1rem 0rem 1rem 0rem;justify-content: center;align-items: center">
+                    <p>{!! $og->about !!}</p>
+                    <div
+                        style="display: flex;flex-wrap: wrap;gap: 1rem; margin: 1rem 0rem 1rem 0rem;justify-content: center;align-items: center">
                         <livewire:originsub.delete :og="$og">
                             <livewire:originsub.accepted :og="$og">
                                 @if ($og->origins)

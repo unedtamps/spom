@@ -13,11 +13,11 @@
 
                 <div>
                     <h2>About</h2>
-                    {{ $og->about }}
+                    {!! $og->about !!}
                     <h2>Origin Story</h2>
-                    {{ $og->origin_story }}
+                    {!! $og->origin_story !!}
                     <h2>Spread</h2>
-                    {{ $og->spread }}
+                    {!! $og->spread !!}
                 </div>
                 <div class="origin-example">
                     <h2>Example</h2>
@@ -29,8 +29,8 @@
                 </div>
                 <div>
                     <h4>Contributors :
-                        @foreach ($og->contributors as $oc )
-                           <i>{{ '@'.$oc->user->username.'  '}}</i> 
+                        @foreach ($og->contributors as $oc)
+                            <i>{{ '@' . $oc->user->username . '  ' }}</i>
                         @endforeach
                     </h4>
                 </div>

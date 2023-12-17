@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('origin_memes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('about');
+            $table->longText('about');
             $table->longText('spread');
             $table->longText('origin_story');
             $table->timestamp('created_at')->useCurrent();
