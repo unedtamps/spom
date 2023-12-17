@@ -451,6 +451,9 @@ main .container .left .profile {
     font-size: 1.4rem;
     margin: 0.6rem;
 }
+.middle .feed .action-buttons .interaction-button{
+    display: flex;
+}
 
 .middle .liked-by {
     display: flex;

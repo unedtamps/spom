@@ -6,12 +6,10 @@ use App\Models\Meme;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class Show extends Component
 {
     public $opne = false;
-    use WithPagination;
     public function del(Meme $meme)
     {
         if (Auth::check() && Auth::id() == $meme->user_id) {
@@ -34,7 +32,7 @@ class Show extends Component
     public function render()
     {
         $meme_trend = Meme::orderBy('likes', 'DESC')->take(5)->get();
-        $memes = Meme::orderBy('updated_at', 'DESC')->paginate(10);
+        $memes = Meme::orderBy('updated_at', 'DESC')->take(5)->get();
         return view('livewire.meme.show', [
             'memes' => $memes,
             'trends' => $meme_trend

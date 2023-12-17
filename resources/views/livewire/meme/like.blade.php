@@ -1,4 +1,3 @@
-<div>
     <button wire:click='likeAct' class="btn btn-success">
         @if ($like == true)
             Liked
@@ -6,4 +5,3 @@
             Like
         @endif
     </button>
-</div>

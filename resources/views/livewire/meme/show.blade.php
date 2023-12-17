@@ -41,8 +41,7 @@
                             <button wire:click='del({{ $meme }})'
                                 wire:confirm='Are you sure to delete {{ $meme->title }}'
                                 class="btn btn-logout">Delete</button>
-                            <a wire:navigate href="/update-meme/{{ $meme->id }}"><span><i
-                                        class="uil uil-edit"></i></span></a>
+                            <a wire:navigate href="/update-meme/{{ $meme->id }}"><button class="btn btn-second">Edit</button></a>
                         @endif
                     </div>
                     <div class="bookmark">
