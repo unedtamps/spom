@@ -15,7 +15,7 @@ class Login extends Component
     {
         $this->validate();
         if (Auth::attempt(['email' => $this->form->email, 'password' => $this->form->password])) {
-            return $this->redirect(route('home'));
+            return redirect(route('home'));
         }
         session()->flash('error', 'Email or Password is wrong.');
     }

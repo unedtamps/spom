@@ -1,7 +1,7 @@
     <div class="left">
         <a wire:navigate href="/user/{{ Auth::id() }}" class="profile">
             <div class="profile-photo">
-                <img src="/storage/user/{{ Auth::user()->profile_pic }}" alt="">
+                <img src="/storage/profile/{{ Auth::user()->profile_pic }}" alt="">
             </div>
             <div class="handle">
                 <h4>{{ Auth::user()->name }}</h4>
@@ -30,10 +30,16 @@
                     <h3>Submission</h3>
                 </x-nav-link>
             @endif
+            <x-nav-link class="menu-item" :active="request()->routeIs('create-meme')" href="/create-meme/{{ Auth::id() }}">
+                <span><i class="uil uil-image-plus"></i></span>
+                <h3>Add Meme</h3>
+            </x-nav-link>
+            <x-nav-link class="menu-item" :active="request()->routeIs('create-origin')" href="/create-origin/{{ Auth::id() }}">
+                <span><i class="uil uil-book-medical"></i></span>
+                <h3>Add Origin</h3>
+            </x-nav-link>
+
+            <livewire:users.logout>
         </div>
         <!-------------END OF SIDEBAR------------->
-        <x-nav-link class="btn btn-primary" :active="request()->routeIs('create-meme')" href="/create-meme/{{ Auth::id() }}">Create
-            Meme</x-nav-link>
-        <x-nav-link class="btn btn-primary" :active="request()->routeIs('create-origin')" href="/create-origin/{{ Auth::id() }}">Create
-            Origin</x-nav-link>
     </div>

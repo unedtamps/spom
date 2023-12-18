@@ -1,13 +1,4 @@
 <div>
-    @if (session('error'))
-        <div>
-            Error: {{ session('error') }}
-        </div>
-    @elseif (session('success'))
-        <div>
-            Sucess: {{ session('success') }}
-        </div>
-    @endif
     <form wire:submit='save' class="">
         <div class="form-input">
             <label class="" for="name">

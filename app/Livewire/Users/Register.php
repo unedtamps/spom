@@ -21,7 +21,6 @@ class Register extends Component
         $user = User::create(
             $this->form->all()
         );
-        error_log($user);
         UserDetail::create([
             'user_id' => $user->id,
         ]);

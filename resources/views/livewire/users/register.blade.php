@@ -1,29 +1,17 @@
-<div>
-    <form wire:submit='create' class="flex flex-col w-1/2 mx-auto">
-        <label for="name">Nama</label>
-        <input type="text" id="name" wire:model='form.name'>
-        @error('form.name')
-           <div class="error">{{ $message }}</div> 
-        @enderror
-        <label for="username">Username</label>
-        <input type="text" id="username" wire:model='form.username'>
-        @error('form.username')
-           <div class="error">{{ $message }}</div> 
-        @enderror
-        <label for="email">Email</label>
-        <input type="email" id="email" wire:model='form.email'>
-        @error('form.email')
-           <div class="error">{{ $message }}</div> 
-        @enderror
-        <label for="password">Password</label>
-        <input type="password" id="password" wire:model='form.password'>
-        @error('form.password')
-           <div class="error">{{ $message }}</div> 
-        @enderror
-        <button class="submit bg-red-300 rounded-sm w-1/4 mx-auto" >Submit</button>
-    </form>
-    {{-- <p>{{ $name }}</p>
-    <p>{{ $username }}</p>
-    <p>{{ $password }}</p>
-    <p>{{ $email }}</p> --}}
-</div>
+   <form wire:submit='create'>
+       <label for="chk" aria-hidden="true">Sign up</label>
+       <input type="text" wire:model='form.name' name="name" placeholder="Name" required>
+       @error('form.name')
+       @enderror
+
+       <input type="text" wire:model='form.username' name="txt" placeholder="User name" required>
+       @error('form.username')
+       @enderror
+       <input type="email" name="email" wire:model='form.email' placeholder="Email" required>
+       @error('form.email')
+       @enderror
+       <input type="password" name="pswd" wire:model='form.password' placeholder="Password" required="">
+       @error('form.password')
+       @enderror
+       <button type="submit">Sign up</button>
+   </form>

@@ -5,6 +5,7 @@ use App\Livewire\Home;
 use App\Livewire\Meme\Create as MemeCreate;
 use App\Livewire\SearchUser;
 use App\Livewire\TestUpload;
+use App\Livewire\Users\Auth as UsersAuth;
 use App\Livewire\Users\Login;
 use App\Livewire\Users\Register;
 use App\Models\User;
@@ -53,6 +54,7 @@ Route::middleware(['auth.user'])->group(function () {
     Route::get("/origin", App\Livewire\Origin\Show::class)->name('origin');
     Route::get("/origin-edit/{origin}", App\Livewire\Origin\Edit::class)->name('origin-edit');
     Route::get("/explore", App\Livewire\Explore\Show::class)->name('explore');
+    Route::get("/logout", [App\Http\Controllers\UserController::class,'logout'])->name('logout');
 });
 
 Route::middleware(['auth.admin'])->group(function () {
@@ -64,8 +66,7 @@ Route::middleware(['auth.admin'])->group(function () {
 });
 
 Route::middleware(['guest.user'])->group(function () {
-    Route::get('/login', Login::class)->name('login');
-    Route::get('/register', Register::class)->name('register');
+    Route::get('/auth', UsersAuth::class)->name('login');
 });
 
 Route::fallback(function () {
