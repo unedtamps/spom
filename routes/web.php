@@ -52,6 +52,7 @@ Route::middleware(['auth.user'])->group(function () {
     Route::get("/origin/{og}", App\Livewire\Origin\Showdetails::class)->name('origin-details');
     Route::get("/origin", App\Livewire\Origin\Show::class)->name('origin');
     Route::get("/origin-edit/{origin}", App\Livewire\Origin\Edit::class)->name('origin-edit');
+    Route::get("/explore", App\Livewire\Explore\Show::class)->name('explore');
 });
 
 Route::middleware(['auth.admin'])->group(function () {

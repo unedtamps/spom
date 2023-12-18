@@ -61,11 +61,15 @@
             </div>
         </div>
     @endforeach
-    
-    @if ($page != 0)
-        <a wire:navigate href="{{ route('home', ['page' => $page-1]) }}"><button class="btn btn-second">Previous</button></a>
-    @endif
-    @if(count($memes) >= 5)
-    <a wire:navigate href="{{ route('home', ['page' => $page+1]) }}"><button class="btn btn-primary">Next</button></a>
-    @endif
+
+    <div style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 1rem">
+        @if ($page != 0)
+            <a wire:navigate href="{{ route('home', ['page' => $page - 1]) }}"><button
+                    class="btn btn-second">Previous</button></a>
+        @endif
+        @if (count($memes) >= 5)
+            <a wire:navigate href="{{ route('home', ['page' => $page + 1]) }}"><button
+                    class="btn btn-primary">Next</button></a>
+        @endif
+    </div>
 </div>
