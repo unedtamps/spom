@@ -7,7 +7,7 @@ use Livewire\Form;
 
 class MemeForm extends Form
 {
-    #[Validate('required|min:8|max:255')]
+    #[Validate('required|max:255')]
     public $title = ' ';
     #[Validate('required|image|max:1024')]
     public $pic = null;
