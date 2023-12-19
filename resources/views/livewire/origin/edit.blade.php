@@ -60,7 +60,7 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
+        $(function() {
             $('#about').summernote({
                 placeholder: '',
                 tabsize: 2,
@@ -80,9 +80,9 @@
                         @this.set('form.about', contents)
                     },
                 }
-            }).summernote('code', @json($form->about));
+            })
         })
-        $(document).ready(function() {
+        $(function() {
             $('#origin_story').summernote({
                 placeholder: '',
                 tabsize: 2,
@@ -101,9 +101,9 @@
                         @this.set('form.origin_story', contents)
                     },
                 }
-            }).summernote('code', @json($form->origin_story));
+            })
         })
-        $(document).ready(function() {
+        $(function() {
             $('#spread').summernote({
                 placeholder: '',
                 tabsize: 2,
@@ -123,8 +123,7 @@
                         @this.set('form.spread', contents)
                     },
                 }
-            }).summernote('code', @json($form->spread));
-
+            })
         })
     </script>
 @endpush
