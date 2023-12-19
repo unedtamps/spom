@@ -30,10 +30,17 @@ class DatabaseSeeder extends Seeder
         // OriginSubExample::factory(20)->create();
         // OriginExample::factory(20)->create();
         User::create([
-            'name' => 'admin',
-            'username' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => 'admin123',
+            'name' => 'unedo tampubolon',
+            'username' => 'unedo',
+            'email' => 'unedo.tampubolon@gmail.com',
+            'password' => 'tampubolon12',
+            'role' => 'ADMIN',
+        ]);
+	User::create([
+            'name' => 'jonathan purba',
+            'username' => 'jona',
+            'email' => 'jonathan.purba@gmail.com',
+            'password' => 'purba12',
             'role' => 'ADMIN',
         ]);
         User::create([
@@ -43,6 +50,14 @@ class DatabaseSeeder extends Seeder
             'password' => 'user123',
             'role' => 'USER',
         ]);
-        UserDetail::factory(2)->create();
+        UserDetail::create([
+            'user_id' => 1,
+        ]);
+        UserDetail::create([
+            'user_id' => 2,
+        ]);
+        UserDetail::create([
+            'user_id' => 3,
+        ]);
     }
 }
