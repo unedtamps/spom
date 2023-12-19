@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'tampubolon12',
             'role' => 'ADMIN',
         ]);
-	User::create([
+        User::create([
             'name' => 'jonathan purba',
             'username' => 'jona',
             'email' => 'jonathan.purba@gmail.com',

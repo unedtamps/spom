@@ -27,7 +27,7 @@
                 </div>
                 <div style="margin-top: 1rem;" class="meme-head">
                     <h1>{{ $meme->title }}</h1>
-                    <div>{{ $meme->caption }}</div>
+                    <p>{{ $meme->caption }}</p>
                 </div>
 
                 <div class="photo">

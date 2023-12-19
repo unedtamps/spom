@@ -42,6 +42,9 @@ body {
 }
 
 /* GENERAL STYLES */
+h1 {
+    font-size: 1.6rem;
+}
 
 .container {
     width: 90%;
@@ -462,7 +465,8 @@ main .container .left .profile {
 
 .middle .feed .action-buttons .interaction-button {
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .middle .liked-by {
@@ -584,7 +588,12 @@ input[type=file]::file-selector-button:hover {
     background: #0d45a5;
 }
 
+
 @media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 1.4rem;
+    }
+
     .container {
         width: 96%;
     }

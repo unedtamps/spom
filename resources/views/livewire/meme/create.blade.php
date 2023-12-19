@@ -10,7 +10,7 @@
             </label>
             <label for="caption">
                 <h4>Caption</h4>
-                <input id="caption" class="input-name" type="text" wire:model='form.caption'>
+                <input id="caption" placeholder="this can be empty" class="input-name" type="text" wire:model='form.caption'>
                 @error('form.caption')
                     <div class="error-input">{{ $message }}</div>
                 @enderror

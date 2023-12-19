@@ -1,11 +1,29 @@
 <div>
-    @if (session('error'))
-        <div>
-            Error: {{ session('error') }}
+        <div class="feeds">
+            <div class="feed">
+                <div class="info" style="text-align: center ">
+                    <h1>{{ $form->name }}</h1>
+                </div>
+                <div>
+                    <h2>About</h2>
+                    {!! $form->about !!}
+                    <h2>Origin Story</h2>
+                    {!! $form->origin_story !!}
+                    <h2>Spread</h2>
+                    {!! $form->spread !!}
+                </div>
+                <h2>Example</h2>
+                <div class="input-result">
+                    @foreach ($form->example as $ex)
+                        <img src="{{ $ex->temporaryUrl() }}" alt="">
+                    @endforeach
+                </div>
+            </div>
         </div>
-    @elseif (session('success'))
-        <div>
-            Sucess: {{ session('success') }}
+    @if ($form->about == '' && $form->origin_story == '' && $form->spread == '')
+        <div style="display: flex; justify-content: center;align-items: center;margin-bottom: 2rem">
+            <a wire:navigate href="/create-origin/{{ $user->id }}" style="color: white"><button
+                    class="btn btn-primary">Click This If Preview Not Loaded</button></a>
         </div>
     @endif
 
@@ -56,11 +74,6 @@
                     <div class="error-input">{{ $message }}</div>
                 @enderror
             </label>
-            <div class="input-result">
-                @foreach ($form->example as $ex)
-                    <img src="{{ $ex->temporaryUrl() }}" alt="">
-                @endforeach
-            </div>
             <button class="btn btn-primary" type="submit">Submit</button>
         </div>
     </form>

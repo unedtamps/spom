@@ -11,6 +11,6 @@ class MemeForm extends Form
     public $title = ' ';
     #[Validate('required|image|max:1024')]
     public $pic = null;
-    #[Validate('required|max:255')]
+    #[Validate('max:255')]
     public $caption = ' ';
 }
