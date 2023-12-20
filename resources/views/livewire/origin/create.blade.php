@@ -22,7 +22,7 @@
         </div>
     @if ($form->about == '' && $form->origin_story == '' && $form->spread == '')
         <div style="display: flex; justify-content: center;align-items: center;margin-bottom: 2rem">
-            <a wire:navigate href="/create-origin/{{ $user->id }}" style="color: white"><button
+            <a wire:navigate href="/create-origin?id={{ $user->id }}" style="color: white"><button
                     class="btn btn-primary">Click This If Preview Not Loaded</button></a>
         </div>
     @endif

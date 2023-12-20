@@ -505,7 +505,7 @@ main .container .left .profile {
 
 .origin-img {
     width: 40%;
-    min-width: 20rem;
+    min-width: 10rem;
     border-radius: 1rem;
     object-fit: contain;
 }
@@ -638,17 +638,9 @@ input[type=file]::file-selector-button:hover {
         gap: 1rem;
     }
 
-    /* .left {
-        z-index: 5;
-    } */
-
     main .container .left .profile {
         display: none;
     }
-
-    /* .sidebar h3 {
-        display: none;
-    } */
 
     .left .btn {
         display: none;

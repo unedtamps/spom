@@ -17,7 +17,7 @@
                 </div>
                 <div class="origin-example">
                     <h2>Example</h2>
-                    <div>
+                    <div class="photo">
                         @foreach ($og->examples as $oex)
                             <img class="origin-img" src="/storage/origin/{{ $oex->example }}" alt="">
                         @endforeach
