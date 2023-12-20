@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\About;
 use App\Livewire\Counter;
 use App\Livewire\Home;
 use App\Livewire\Meme\Create as MemeCreate;
@@ -25,49 +26,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/testing', function () {
-    $data = User::select('id', 'name', 'username')->get()->first();
-    print_r($data->user_details->meme_likes);
-    $test2 = User::with('memes')->where('id', 1)->get()->first();
-    if ($test2 === null) {
-        return;
-    }
-    foreach ($test2->memes as $d) {
-        print_r($d->title);
-    }
-    $test = $data->contributors->first();
-    $test3 = $test->origins;
-    print_r($test3->about);
-    return;
-});
 
 Route::middleware(['auth.user'])->group(function () {
     Route::get("/user", App\Livewire\Users\Show::class);
-    Route::get("/create-meme/{user}", MemeCreate::class)->name('create-meme');
-    Route::get("/meme/{meme}", App\Livewire\Meme\Showdetails::class)->name('meme-details');
+    Route::get("/meme", App\Livewire\Meme\Showdetails::class)->name('meme-details');
     Route::get("/update-meme", App\Livewire\Meme\Edit::class)->name('update-meme');
     Route::get("home", Home::class)->name('home');
 
 
-    Route::get("/create-origin/{user}", App\Livewire\Origin\Create::class)->name('create-origin');
+    Route::get("/create-origin", App\Livewire\Origin\Create::class)->name('create-origin');
     Route::get("/origin-details", App\Livewire\Origin\Showdetails::class)->name('origin-details');
     Route::get("/origin", App\Livewire\Origin\Show::class)->name('origin');
-    Route::get("/origin-edit/{origin}", App\Livewire\Origin\Edit::class)->name('origin-edit');
+    Route::get("/origin-edit", App\Livewire\Origin\Edit::class)->name('origin-edit');
     Route::get("/explore", App\Livewire\Explore\Show::class)->name('explore');
     Route::get("/logout", [App\Http\Controllers\UserController::class,'logout'])->name('logout');
 });
 
 Route::middleware(['auth.admin'])->group(function () {
-    Route::get('/testadmin', function () {
-        print_r(Auth::user()->role);
-    });
     Route::get('/origin-sub', App\Livewire\Originsub\Show::class)->name('origin-sub');
-    Route::get('/origin-sub/{ogs}', App\Livewire\Originsub\Showdetails::class)->name('origin-sub-details');
+    Route::get('/origin-sub-details', App\Livewire\Originsub\Showdetails::class)->name('origin-sub-details');
 });
 
 Route::middleware(['guest.user'])->group(function () {
     Route::get('/auth', UsersAuth::class)->name('login');
 });
+
+Route::get('/about', About::class)->name('about');
 
 Route::fallback(function () {
     return redirect(route('login'));

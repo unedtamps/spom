@@ -24,10 +24,10 @@
                     <livewire:meme.like :meme='$meme'>
                         @if (Auth::id() == $meme->user_id)
                             <livewire:meme.delete :meme='$meme'>
-                                <a wire:navigate href="/update-meme/{{ $meme->id }}"><button
+                                <a wire:navigate href="/update-meme?id={{ $meme->id }}"><button
                                         class="btn btn-second">Edit</button></a>
                         @endif
-                        <a wire:navigate href="/"><button class="btn btn-second">Back</button></a>
+                        <a wire:navigate href="{{ route('home') }}"><button class="btn btn-second">Back</button></a>
                 </div>
             </div>
         </div>

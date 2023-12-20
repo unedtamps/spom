@@ -95,3 +95,84 @@ button:hover{
     width: auto;
     color: red
 }
+
+.card {
+  width: 50%;
+  margin: 4rem 0;
+  background: #1a1a1a;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.card:before {
+  position: absolute;
+  content: "";
+  top: -0.25em;
+  left: -0.25em;
+  background: linear-gradient(51deg, #f490ff, #be0786, #4eafff, #700099);
+  z-index: -1;
+  width: calc(100% + 0.5em);
+  height: calc(100% + 0.5em);
+  border-radius: 15px;
+  animation: gradient 5s ease infinite;
+  background-size: 350% 350% !important;
+  box-shadow: 0 8px 12px #4eafff88;
+  transition: 0.5s ease-in-out;
+}
+
+.card:hover:before {
+  animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0px 0px 15px #4eafff;
+  }
+
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0px 10px #4eafff;
+  }
+
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0px 0px 20px #4eafff;
+  }
+}
+.card p {
+	font-size: 15px;
+	text-align: justify;
+}
+
+.btn {
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+}
+.btn-primary{
+	background-color: #302b63;
+	color: white;
+	border-radius: 1rem;
+}
+
+@media screen and (max-width: 992px) {
+	.card{
+		width: 70%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.card{
+		width: 75%;
+	}
+}

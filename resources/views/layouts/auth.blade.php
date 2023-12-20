@@ -7,6 +7,7 @@
     <title>Login | Sign Up</title>
     <link rel="stylesheet" href="css/auth.css">
 </head>
+
 <body>
     {{ $slot }}
 </body>

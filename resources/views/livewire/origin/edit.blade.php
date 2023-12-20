@@ -23,7 +23,7 @@
         </div>
     @endif
         <div style="display: flex; justify-content: center;align-items: center;margin-bottom: 2rem">
-            <a wire:navigate href="/origin-edit/{{ $origin->id }}" style="color: white"><button
+            <a wire:navigate href="/origin-edit?id={{ $origin->id }}" style="color: white"><button
                     class="btn btn-primary">Click This If Origin Not Changed</button></a>
         </div>
     <form wire:submit='save' class="">

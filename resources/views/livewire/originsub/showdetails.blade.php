@@ -31,7 +31,7 @@
                 <livewire:originsub.delete :og="$ogs">
                     <livewire:originsub.accepted :og="$ogs">
                         @if ($ogs->origins)
-                            <a wire:navigate href="/origin/{{ $ogs->origins->id }}"><button
+                            <a wire:navigate href="/origin-details?id={{ $ogs->origins->id }}"><button
                                     class="btn btn-primary">Origin</button></a>
                         @endif
                         <a wire:navigate href="/origin-sub"><button class="btn btn-second">Back</button></a>

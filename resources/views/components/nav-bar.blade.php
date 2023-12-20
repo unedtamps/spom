@@ -30,10 +30,14 @@
                     <h3>Submission</h3>
                 </x-nav-link>
             @endif
-            <x-nav-link class="menu-item" :active="request()->routeIs('create-origin')" href="/create-origin/{{ Auth::id() }}">
+            <x-nav-link class="menu-item" :active="request()->routeIs('create-origin')" href="/create-origin?id={{ Auth::id() }}">
                 <span><i class="uil uil-book-medical"></i></span>
                 <h3>Add Origin</h3>
             </x-nav-link>
+            <a class="menu-item" href="{{ route('about') }}">
+                <span><i class="uil uil-compass"></i></span>
+                <h3>About</h3>
+            </a>
 
             <livewire:users.logout>
         </div>

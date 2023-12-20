@@ -17,7 +17,7 @@ use Livewire\WithFileUploads;
 class Create extends Component
 {
     public OriginForm $form;
-    public User $user;
+    public  $user;
     use WithFileUploads;
 
     public function create_file_name(): string
@@ -62,6 +62,14 @@ class Create extends Component
             return redirect(route('home'));
         } catch (\Throwable $th) {
             return session()->flash('error', $th->getMessage());
+        }
+    }
+    public function mount()
+    {
+        $id = request()->query('id', 0);
+        $this->user = User::find($id);
+        if (!$this->user) {
+            abort(404);
         }
     }
 

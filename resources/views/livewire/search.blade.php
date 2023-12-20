@@ -19,7 +19,7 @@
                 </a>
             @endforeach
             @foreach ($memes as $meme)
-                <a wire:navigate href="/meme/{{ $meme->id }}">
+                <a wire:navigate href="/meme?id={{ $meme->id }}">
                     <div class="search-detail">
                         <div class="profile-photo">
                             <img src="/storage/meme/{{ $meme->pics }}" alt="photo">

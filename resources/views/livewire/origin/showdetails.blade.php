@@ -28,7 +28,7 @@
             </div>
             <div class="action-buttons">
                 <div class="interaction-button">
-                    <a wire:navigate href="/origin-edit/{{ $og->id }}"><button class="btn btn-primary"
+                    <a wire:navigate href="/origin-edit?id={{ $og->id }}"><button class="btn btn-primary"
                             style="margin-bottom: 1rem;">Contribute</button></a>
                     <a wire:navigate href="/origin?page={{ $page }}"><button
                             class="btn btn-second">Back</button></a>

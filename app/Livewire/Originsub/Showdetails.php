@@ -8,7 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class Showdetails extends Component
 {
-    public OriginSubmission $ogs;
+    public  $ogs;
+    public function mount(){
+        $id = request()->query('id',0);
+        $this->ogs = OriginSubmission::find($id);
+        if(!$this->ogs){
+            return abort(404);
+        }
+    }
     public function render()
     {
         if (Auth::check() && Auth::user()->role == 'admin') {

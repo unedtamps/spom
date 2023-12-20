@@ -1,13 +1,4 @@
 <div wire:key='$refreshState'>
-    @if (session('error'))
-        <div>
-            Error: {{ session('error') }}
-        </div>
-    @elseif(session('success'))
-        <div>
-            Success : {{ session('success') }}
-        </div>
-    @endif
     <div class="feeds">
         <div class="feed">
             <div class="statistic">
@@ -49,7 +40,7 @@
                         </small>
                         <p style="margin-top: 0.4rem"><a
                                 style="background: #5FBDFF; padding: 0.2rem 1rem 0.2rem 1rem;border-radius: 1rem;"
-                                wire:navigate href="/user/{{ $og->user->id }}">{{ '@' . $og->user->username }}</a></p>
+                                wire:navigate href="/user?id={{ $og->user->id }}">{{ '@' . $og->user->username }}</a></p>
                     </div>
                     <h2>About</h2>
                     <p>{!! $og->about !!}</p>
@@ -58,10 +49,10 @@
                         <livewire:originsub.delete :og="$og">
                             <livewire:originsub.accepted :og="$og">
                                 @if ($og->origins)
-                                    <a wire:navigate href="/origin/{{ $og->origins->id }}"><button
+                                    <a wire:navigate href="/origin-details?id={{ $og->origins->id }}"><button
                                             class="btn btn-primary">Origin</button></a>
                                 @endif
-                                <a wire:navigate href="/origin-sub/{{ $og->id }}"><button
+                                <a wire:navigate href="/origin-sub-details?id={{ $og->id }}"><button
                                         class="btn btn-second">Details</button></a>
                     </div>
                 </div>

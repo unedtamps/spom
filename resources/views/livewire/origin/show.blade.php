@@ -14,10 +14,6 @@
                 <div>
                     <h2>About</h2>
                     {!! $og->about !!}
-                    <h2>Origin Story</h2>
-                    {!! $og->origin_story !!}
-                    <h2>Spread</h2>
-                    {!! $og->spread !!}
                 </div>
                 <div class="origin-example">
                     <h2>Example</h2>
@@ -29,7 +25,7 @@
                 </div>
                 <div class="action-buttons">
                     <div class="interaction-button">
-                        <a wire:navigate href="/origin-edit/{{ $og->id }}"><button class="btn btn-primary"
+                        <a wire:navigate href="/origin-edit?id={{ $og->id }}"><button class="btn btn-primary"
                                 style="margin-bottom: 1rem;">Contribute</button></a>
                         <a href="/origin-details?id={{ $og->id }}&page={{ $page }}"><button
                                 class="btn btn-success">Details</button></a>

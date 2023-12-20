@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Edit extends Component
 {
-    public OriginMeme $origin;
+    public  $origin;
     use WithFileUploads;
     public OriginForm $form;
 
@@ -25,6 +25,11 @@ class Edit extends Component
 
     public function mount()
     {
+        $id = request()->query('id', 0);
+        $this->origin = OriginMeme::find($id);
+        if (!$this->origin) {
+            return abort(404);
+        }
         $this->form->name = $this->origin->name;
         $this->form->about = $this->origin->about;
         $this->form->origin_story = $this->origin->origin_story;
