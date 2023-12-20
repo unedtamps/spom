@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Users;
 
+use App\Models\MemeLikes;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -20,6 +21,7 @@ class Show extends Component
     public $user;
     #[Validate('image|max:1024')]
     public $pic = null;
+    public $get_like = 0;
 
 
 
@@ -41,7 +43,7 @@ class Show extends Component
                 'profile_pic' => $file_name,
             ]);
             DB::commit();
-            return redirect("/user?id=".$this->user->id);
+            return redirect("/user?id=" . $this->user->id);
         } catch (\Throwable $th) {
             DB::rollback();
             error_log($th->getMessage());
@@ -52,6 +54,7 @@ class Show extends Component
     {
         $this->id = request()->query('id', 1);
         $this->user = User::where('id', $this->id)->get()->first();
+        $this->get_like = DB::select("select count(*) as jumlah_like from users u inner join memes m on m.user_id = u.id inner join meme_likes ml on ml.meme_id = m.id where u.id = ?", [$this->id])[0]->jumlah_like;
     }
 
     public function render()

@@ -10,6 +10,6 @@ class LoginForm extends Form
     #[Validate('required|email')]
     public $email = '';
 
-    #[Validate('required')]
+    #[Validate('required|min:8')]
     public $password = '';
 }

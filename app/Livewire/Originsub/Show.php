@@ -2,13 +2,14 @@
 
 namespace App\Livewire\Originsub;
 
-use App\Models\Contributor;
 use App\Models\Meme;
-use App\Models\OriginExample;
-use App\Models\OriginMeme;
-use Livewire\Component;
-use App\Models\OriginSubmission;
 use App\Models\User;
+use Livewire\Component;
+use App\Models\OriginMeme;
+use App\Models\Contributor;
+use App\Models\OriginExample;
+use Livewire\Attributes\Title;
+use App\Models\OriginSubmission;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -27,6 +28,7 @@ class Show extends Component
         $this->total_user = User::count();
         $this->total_submited = OriginSubmission::count();
     }
+    #[Title('SPOM | Submission')]
     public function render()
     {
         if (Auth::check() && Auth::user()->role == 'admin') {

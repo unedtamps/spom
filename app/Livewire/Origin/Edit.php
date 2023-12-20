@@ -66,6 +66,6 @@ class Edit extends Component
     }
     public function render()
     {
-        return view('livewire.origin.edit');
+        return view('livewire.origin.edit')->title('Contribute | ' . Auth::user()->username );
     }
 }

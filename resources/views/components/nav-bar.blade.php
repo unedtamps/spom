@@ -1,7 +1,7 @@
     <div class="left">
         <a href="/user?id={{ Auth::id() }}" class="profile">
             <div class="profile-photo">
-                <img src="/storage/profile/{{ Auth::user()->profile_pic ?? 'profile.jpg'}}" alt="">
+                <img src="/storage/profile/{{ Auth::user()->profile_pic ?? 'profile.jpg' }}" alt="">
             </div>
             <div class="handle">
                 <h4>{{ Auth::user()->name }}</h4>
@@ -11,7 +11,7 @@
             </div>
         </a>
         <!-----------SIDEBAR------------>
-        <div class="sidebar">
+        <div class="sidebar" id="mysidebar">
             <x-nav-link class="menu-item" :active="request()->routeIs('home')" href="{{ route('home') }}">
                 <span><i class="uil uil-home"></i></span>
                 <h3>Home</h3>
@@ -40,6 +40,10 @@
             </a>
 
             <livewire:users.logout>
+        </div>
+        <div id="show-nav">
+            <button class="togglebtn" onclick="toggleNav()"><span><i style="color: white;"
+                        class="uil uil-arrow-circle-left"></i></span></button>
         </div>
         <!-------------END OF SIDEBAR------------->
     </div>

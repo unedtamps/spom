@@ -3,6 +3,7 @@
 namespace App\Livewire\Meme;
 
 use App\Models\Meme;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class Show extends Component
@@ -18,6 +19,7 @@ class Show extends Component
         $this->memes = Meme::orderBy('updated_at', 'DESC')->take(5)->skip($this->page * 5)->get();
     }
 
+    #[Title('SPOM | Home')]
     public function render()
     {
         return view('livewire.meme.show');

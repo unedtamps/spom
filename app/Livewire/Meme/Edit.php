@@ -72,7 +72,7 @@ class Edit extends Component
     public function render()
     {
         if ($this->meme && Auth::id() == $this->meme->user_id) {
-            return view('livewire.meme.edit');
+            return view('livewire.meme.edit')->title('Edit Meme | ' . $this->meme->user->username);
         }else{
             return abort(403,'Not Authorize');
         }

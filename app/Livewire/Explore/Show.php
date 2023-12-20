@@ -2,8 +2,9 @@
 
 namespace App\Livewire\Explore;
 
-use Illuminate\Support\Facades\Http;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+use Illuminate\Support\Facades\Http;
 
 class Show extends Component
 {
@@ -18,6 +19,7 @@ class Show extends Component
         $this->memes = $this->memes->json();
     }
 
+    #[Title('SPOM | Explore')]
     public function render()
     {
         return view('livewire.explore.show');

@@ -10,12 +10,13 @@ body{
 }
 .main{
 	width: 350px;
-	height: 500px;
+	height: 600px;
 	background: red;
 	overflow: hidden;
 	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
+	margin: 2rem 0;
 }
 #chk{
 	display: none;
@@ -39,14 +40,26 @@ input{
 	width: 60%;
 	height: 20px;
 	background: #e0dede;
-	justify-content: center;
-	display: flex;
-	margin: 20px auto;
+	margin: 0 auto;
 	padding: 10px;
 	border: none;
 	outline: none;
 	border-radius: 5px;
 }
+.error-input {
+    color: red;
+	font-size: 10px;
+	display: flex;
+	justify-content: center	;
+}
+.input-regist{
+	width: 100%;
+	margin: 20px auto;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
 button{
 	width: 60%;
 	height: 40px;
@@ -89,12 +102,6 @@ button:hover{
 	transform: scale(.6);
 }
 
-.error-input {
-    padding: 0.3rem;
-    border-radius: 1rem;
-    width: auto;
-    color: red
-}
 
 .card {
   width: 50%;
@@ -164,6 +171,25 @@ button:hover{
 	background-color: #302b63;
 	color: white;
 	border-radius: 1rem;
+}
+
+
+#notification{
+	background-color: rgb(9, 152, 255);
+	text-align: center;
+	font-weight: bolder;
+	position: absolute;
+	width: 350px;
+	color: white;
+	opacity: 0.4s;
+}
+
+
+#errorMessage{
+	color: red;
+}
+#successMessage{
+	color: rgb(0, 255, 8);
 }
 
 @media screen and (max-width: 992px) {

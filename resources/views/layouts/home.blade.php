@@ -23,7 +23,7 @@
             <livewire:search>
                 <div class="create">
                     <div class="profile-photo">
-                        <a wire:navigate href="/user?id={{ Auth::id() }}"><img
+                        <a href="/user?id={{ Auth::id() }}"><img
                                 src="/storage/profile/{{ Auth::user()->profile_pic ?? 'profile.jpg' }}"
                                 alt=""></a>
                     </div>
@@ -42,5 +42,5 @@
     @stack('scripts')
     @livewireScripts
 </body>
-
+<script src="js/index.js"></script>
 </html>

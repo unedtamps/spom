@@ -6,12 +6,13 @@ use App\Models\User;
 use Livewire\Component;
 use App\Models\OriginMeme;
 use Illuminate\Support\Str;
-use App\Livewire\Forms\OriginForm;
+use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
 use App\Models\OriginSubExample;
 use App\Models\OriginSubmission;
-use Illuminate\Support\Facades\Auth;
+use App\Livewire\Forms\OriginForm;
 use Illuminate\Support\Facades\DB;
-use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 
 
 class Create extends Component
@@ -76,7 +77,7 @@ class Create extends Component
     public function render()
     {
         if (Auth::check() && $this->user->id === Auth::user()->id) {
-            return view('livewire.origin.create');
+            return view('livewire.origin.create')->title('Add Origin | ' . $this->user->username);
         } else {
             abort(403, 'Unauthorized. You do not have permission to perform this action');
         }

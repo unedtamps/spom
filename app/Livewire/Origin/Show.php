@@ -2,9 +2,10 @@
 
 namespace App\Livewire\Origin;
 
-use App\Models\OriginMeme;
 use Livewire\Component;
+use App\Models\OriginMeme;
 use Livewire\WithPagination;
+use Livewire\Attributes\Title;
 
 class Show extends Component
 {
@@ -15,6 +16,7 @@ class Show extends Component
         $this->page = request()->query('page', 0);
         $this->origin = OriginMeme::orderBy('updated_at', 'desc')->take(5)->skip($this->page * 5)->get();
     }
+    #[Title('SPOM | Origin')]
     public function render()
     {
         return view('livewire.origin.show');
