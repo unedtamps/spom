@@ -7,10 +7,10 @@
         <div class="search-result">
             <h3>Result</h3>
             @foreach ($users as $user)
-                <a wire:navigate href="/user?id={{ $user->id }}">
+                <a  href="/user?id={{ $user->id }}">
                     <div class="search-detail">
                         <div class="profile-photo">
-                            <img src="/storage/profile/{{ $user->profile_pic }}" alt="photo">
+                            <img src="/storage/profile/{{ $user->profile_pic ?? 'profile.jpg' }}" alt="photo">
                         </div>
                         <div>
                             <h3>{{ $user->name }} ({{ $user->role }})</h3>

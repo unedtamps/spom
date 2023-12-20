@@ -513,10 +513,11 @@ main .container .left .profile {
 .statistic {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 5px;
     justify-items: center;
     align-content: center;
     width: auto;
+    min-width: 10rem;
 }
 
 .stats {
@@ -531,12 +532,12 @@ main .container .left .profile {
     border-radius: 50%;
     border: 2px solid radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
     ;
-    width: 70px;
+    width: 60px;
     background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70px;
+    height: 60px;
     padding: 1rem;
 }
 
