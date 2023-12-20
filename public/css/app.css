@@ -51,10 +51,11 @@ h1 {
     margin: 0 auto;
 }
 
-.profile-photo {
+.profile-photo img {
     width: 2.7rem;
     aspect-ratio: 1/1;
     border-radius: 50%;
+    object-fit: cover;
     overflow: hidden;
 }
 
@@ -432,7 +433,7 @@ main .container .left .profile {
     background: var(--color-white);
     border-radius: var(--card-border-radius);
     padding: var(--card-padding);
-    width: 80%;
+    width: 70%;
     min-width: 20rem;
     margin: 2rem auto;
     font-size: 0.85rem;
@@ -547,6 +548,13 @@ main .container .left .profile {
     padding: 1rem;
 }
 
+.input-meme {
+    padding: 0.3rem 0 0.3rem 0;
+    margin: 0.3rem 0 0 1rem;
+    width: 92%;
+    font-size: 1.2rem;
+}
+
 .error-input {
     padding: 0.3rem;
     border-radius: 1rem;
@@ -564,6 +572,7 @@ main .container .left .profile {
     flex-wrap: wrap;
     width: 100%;
     gap: 1rem;
+    padding-left: 1rem;
     border-radius: 1rem;
 }
 
@@ -571,6 +580,10 @@ main .container .left .profile {
     width: 40%;
     border-radius: 1rem;
     object-fit: contain;
+}
+
+.input-image-meme>input {
+    display: none;
 }
 
 input[type=file]::file-selector-button {

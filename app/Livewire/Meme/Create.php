@@ -3,18 +3,17 @@
 namespace App\Livewire\Meme;
 
 use App\Models\Meme;
-use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use App\Livewire\Forms\MemeForm;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class Create extends Component
 {
     public MemeForm $form;
-    public User $user;
     use WithFileUploads;
 
     public function create_file_name(): string
@@ -25,36 +24,35 @@ class Create extends Component
     public function save()
     {
         $this->validate();
+        $user = Auth::user();
         $file_name = $this->create_file_name();
         $extension = $this->form->pic->getClientOriginalExtension();
         $this->form->pic->storeAs('public/meme', $file_name . '.' . $extension);
         try {
             DB::beginTransaction();
+            error_log($this->form->title);
+            error_log($file_name . '.' . $extension);
+            error_log(Auth::id());
             Meme::create(
                 [
                     'title' => $this->form->title,
                     'pics' => $file_name . '.' . $extension,
-                    'user_id' => $this->user->id,
-                    'caption' => $this->form->caption,
+                    'user_id' => $user->id
                 ]
             );
-            $this->user->detail->meme_posted++;
+            $user->detail->meme_posted++;
             $this->form->pic = null;
-            $this->user->detail->save();
+            $user->detail->save();
             DB::commit();
+            return redirect(route('home'));
         } catch (\Throwable $th) {
             DB::rollBack();
+            error_log($th->getMessage());
             return session()->flash('error', $th->getMessage());
         }
-        return redirect(route('home'));
     }
-
     public function render()
     {
-        if (Auth::check() && $this->user->id === Auth::id()) {
-            return view('livewire.meme.create');
-        } else {
-            abort(403, 'Unauthorized. You do not have permission to perform this action');
-        }
+        return view('livewire.meme.create');
     }
 }

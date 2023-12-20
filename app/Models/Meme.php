@@ -14,7 +14,6 @@ class Meme extends Model
         'title',
         'pics',
         'user_id',
-        'caption',
         'likes',
         'dislikes',
     ];

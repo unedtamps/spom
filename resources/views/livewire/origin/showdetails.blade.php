@@ -26,20 +26,22 @@
                     @endforeach
                 </div>
             </div>
+            <div class="action-buttons">
+                <div class="interaction-button">
+                    <a wire:navigate href="/origin-edit/{{ $og->id }}"><button class="btn btn-primary"
+                            style="margin-bottom: 1rem;">Contribute</button></a>
+                    <a wire:navigate href="/origin?page={{ $page }}"><button
+                            class="btn btn-second">Back</button></a>
+                </div>
+            </div>
             <div>
-                <a wire:navigate href="/origin-edit/{{ $og->id }}"><button class="btn btn-primary"
-                        style="margin-bottom: 1rem;">Contribute</button></a>
                 <h4>Contributors :
                     @foreach ($og->contributors as $oc)
-                        <i>{{ '@' . $oc->user->username . '  ' }}</i>
+                        <a href="/user?id={{ $oc->user_id }}"><i>{{ '@' . $oc->user->username . '  ' }}</i></a>
                     @endforeach
                 </h4>
             </div>
 
-            <div class="action-buttons">
-                <div class="interaction-button">
-                </div>
-            </div>
         </div>
     </div>
 </div>

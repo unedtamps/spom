@@ -27,21 +27,33 @@
                         @endforeach
                     </div>
                 </div>
+                <div class="action-buttons">
+                    <div class="interaction-button">
+                        <a wire:navigate href="/origin-edit/{{ $og->id }}"><button class="btn btn-primary"
+                                style="margin-bottom: 1rem;">Contribute</button></a>
+                        <a href="/origin-details?id={{ $og->id }}&page={{ $page }}"><button
+                                class="btn btn-success">Details</button></a>
+                    </div>
+                </div>
                 <div>
-                    <a wire:navigate href="/origin-edit/{{ $og->id }}"><button
-                            class="btn btn-primary" style="margin-bottom: 1rem;">Contribute</button></a>
                     <h4>Contributors :
                         @foreach ($og->contributors as $oc)
-                            <i>{{ '@' . $oc->user->username . '  ' }}</i>
+                            <a href="/user?id={{ $oc->user_id }}"> <i>{{ '@' . $oc->user->username . '  ' }}</i></a>
                         @endforeach
                     </h4>
                 </div>
 
-                <div class="action-buttons">
-                    <div class="interaction-button">
-                    </div>
-                </div>
             </div>
         @endforeach
+        <div style="margin-bottom: 2rem; display: flex; justify-content: center; gap: 1rem">
+            @if ($page != 0)
+                <a wire:navigate href="/origin?page={{ $page - 1 }}"><button
+                        class="btn btn-second">Previous</button></a>
+            @endif
+            @if (count($origin) == 5)
+                <a wire:navigate href="/origin?page={{ $page + 1 }}"><button
+                        class="btn btn-primary">Next</button></a>
+            @endif
+        </div>
     </div>
 </div>

@@ -22,9 +22,10 @@
             </h2>
             <livewire:search>
                 <div class="create">
-                    <div class="profile-photo photo-big">
-                        <a wire:navigate href="/user/{{ Auth::id() }}"></a><img src="/storage/profile/{{ Auth::user()->profile_pic }}"
-                            alt="">
+                    <div class="profile-photo">
+                        <a wire:navigate href="/user?id={{ Auth::id() }}"><img
+                                src="/storage/profile/{{ Auth::user()->profile_pic ?? 'profile.jpg' }}"
+                                alt=""></a>
                     </div>
                 </div>
         </div>

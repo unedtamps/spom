@@ -32,7 +32,7 @@
         <div class="form-input">
             <label class="" for="name">
                 <h3>Name</h3>
-                <input class="input-name" placeholder="name" id="name" type="text" wire:model='form.name'>
+                <input class="input-name" placeholder="name" id="name" type="text" wire:model.live='form.name'>
                 @error('form.name')
                     <div class="error-input">{{ $message }}</div>
                 @enderror

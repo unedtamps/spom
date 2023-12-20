@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string("title");
             $table->string("pics", 1024);
             $table->bigInteger("user_id")->unsigned();
-            $table->string("caption")->nullable();
             $table->integer("likes")->default(0);
             $table->integer("dislikes")->default(0);
             $table->timestamp('created_at')->useCurrent();

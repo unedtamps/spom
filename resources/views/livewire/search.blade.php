@@ -7,7 +7,7 @@
         <div class="search-result">
             <h3>Result</h3>
             @foreach ($users as $user)
-                <a wire:navigate href="/user/{{ $user->id }}">
+                <a wire:navigate href="/user?id={{ $user->id }}">
                     <div class="search-detail">
                         <div class="profile-photo">
                             <img src="/storage/profile/{{ $user->profile_pic }}" alt="photo">
@@ -31,7 +31,7 @@
                 </a>
             @endforeach
             @foreach ($origin as $or)
-                <a wire:navigate href="/origin/{{ $or->id }}" href="">
+                <a wire:navigate href="/origin-details?id={{ $or->id }}" href="">
                     <div class="search-detail">
                         <div class="profile-photo">
                             <img src="/storage/origin/{{ count($or->examples) != 0 ? $or->examples[0]->example : 'something'}}" alt="photo">

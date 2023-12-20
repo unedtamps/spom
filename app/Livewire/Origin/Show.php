@@ -9,9 +9,11 @@ use Livewire\WithPagination;
 class Show extends Component
 {
     public $origin;
-    public function mount(){
-        
-        $this->origin = OriginMeme::orderBy('updated_at', 'desc')->get();
+    public $page;
+    public function mount()
+    {
+        $this->page = request()->query('page', 0);
+        $this->origin = OriginMeme::orderBy('updated_at', 'desc')->take(5)->skip($this->page * 5)->get();
     }
     public function render()
     {

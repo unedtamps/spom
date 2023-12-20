@@ -43,10 +43,11 @@ class Accepted extends Component
             $this->og->user->detail->save();
             $this->og->delete();
             DB::commit();
-            session()->flash('success', 'success accepted' . $this->og->name);
+            // session()->flash('success', 'success accepted' . $this->og->name);
         } catch (\Throwable $th) {
+            DB::rollBack();
             error_log($th);
-            session()->flash('error', $th);
+            // session()->flash('error', $th);
         }
         $this->redirect(route('origin-sub'));
     }

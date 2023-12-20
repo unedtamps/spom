@@ -3,7 +3,7 @@
             <div class="head">
                 <div class="user">
                     <div class="profile-photo">
-                        <img src="./images/profile-12.jpg" alt="">
+                        <img src="/storage/profile/{{ $meme->user->profile_pic ?? 'profile_pic' }}" alt="">
                     </div>
                     <div class="info">
                         <h3>{{ $meme->user->name }}</h3>
@@ -13,7 +13,6 @@
             </div>
             <div style="margin-top: 1rem;" class="meme-head">
                 <h1>{{ $meme->title }}</h1>
-                <div>{{ $meme->caption }}</div>
             </div>
 
             <div class="photo">

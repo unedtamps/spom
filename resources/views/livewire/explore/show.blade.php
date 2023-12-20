@@ -1,7 +1,7 @@
 <div>
     <div class="feeds">
         @foreach ($memes['memes'] as $meme)
-            <div class="feed" style="width: 70%; min-width: 20rem; margin: 2rem auto">
+            <div class="feed">
                 <div class="head">
                     <div class="user">
                         <div class="info">

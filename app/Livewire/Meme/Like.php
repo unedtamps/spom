@@ -26,19 +26,24 @@ class Like extends Component
     public function likeAct()
     {
         $this->like = !$this->like;
+        $user = Auth::user();
         if ($this->like) {
             $this->meme->likes++;
+            $user->detail->meme_likes++;
             DB::beginTransaction();
             MemeLikes::create([
                 'user_id' => Auth::id(),
                 'meme_id' => $this->meme->id,
             ]);
+            $user->detail->save();
             $this->meme->save();
             DB::commit();
         } else {
             $this->meme->likes--;
+            $user->detail->meme_likes--;
             DB::beginTransaction();
             MemeLikes::where('user_id', Auth::id())->where('meme_id', $this->meme->id)->delete();
+            $user->detail->save();
             $this->meme->save();
             DB::commit();
         }

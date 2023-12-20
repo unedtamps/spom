@@ -42,15 +42,15 @@ Route::get('/testing', function () {
 });
 
 Route::middleware(['auth.user'])->group(function () {
-    Route::get("/user/{user}", App\Livewire\Users\Show::class);
+    Route::get("/user", App\Livewire\Users\Show::class);
     Route::get("/create-meme/{user}", MemeCreate::class)->name('create-meme');
     Route::get("/meme/{meme}", App\Livewire\Meme\Showdetails::class)->name('meme-details');
-    Route::get("/update-meme/{meme}", App\Livewire\Meme\Edit::class)->name('update-meme');
-    Route::get("home/{page?}", Home::class)->name('home')->defaults('page', 0);
+    Route::get("/update-meme", App\Livewire\Meme\Edit::class)->name('update-meme');
+    Route::get("home", Home::class)->name('home');
 
 
     Route::get("/create-origin/{user}", App\Livewire\Origin\Create::class)->name('create-origin');
-    Route::get("/origin/{og}", App\Livewire\Origin\Showdetails::class)->name('origin-details');
+    Route::get("/origin-details", App\Livewire\Origin\Showdetails::class)->name('origin-details');
     Route::get("/origin", App\Livewire\Origin\Show::class)->name('origin');
     Route::get("/origin-edit/{origin}", App\Livewire\Origin\Edit::class)->name('origin-edit');
     Route::get("/explore", App\Livewire\Explore\Show::class)->name('explore');

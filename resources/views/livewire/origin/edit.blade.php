@@ -31,7 +31,7 @@
             <label class="" for="name">
                 <h3>Name</h3>
                 <input class="input-name" placeholder="name" id="name" type="text" cols="10" rows="30"
-                    wire:model='form.name'>
+                    wire:model.blur='form.name'>
                 @error('form.name')
                     <div class="error-input">{{ $message }}</div>
                 @enderror

@@ -59,7 +59,7 @@ class Create extends Component
             $this->user->detail->origin_created++;
             $this->user->detail->save();
             DB::commit();
-            return redirect(route('home'))->with('success', 'Success Created A Submission to Origin');
+            return redirect(route('home'));
         } catch (\Throwable $th) {
             return session()->flash('error', $th->getMessage());
         }
