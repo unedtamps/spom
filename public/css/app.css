@@ -202,6 +202,10 @@ main .container .left .profile {
     width: 100%;
 }
 
+#show-nav {
+    display: none;
+}
+
 /* ------------SIDEBAR----------- */
 
 .left .sidebar {
@@ -634,18 +638,17 @@ input[type=file]::file-selector-button:hover {
         gap: 1rem;
     }
 
-    .left {
-        width: 5rem;
+    /* .left {
         z-index: 5;
-    }
+    } */
 
     main .container .left .profile {
         display: none;
     }
 
-    .sidebar h3 {
+    /* .sidebar h3 {
         display: none;
-    }
+    } */
 
     .left .btn {
         display: none;
@@ -674,6 +677,39 @@ input[type=file]::file-selector-button:hover {
         color: var(--color-dark);
     }
 
+    .left {
+        z-index: 999;
+    }
+
+    .left .sidebar i {
+        display: block;
+        margin-left: 3.3rem;
+    }
+
+    #mysidebar {
+        margin-right: 1rem;
+        width: 0;
+    }
+
+    .sidebar h3 {
+        display: block;
+    }
+
+    #show-nav {
+        display: block;
+        margin-top: 1rem;
+        text-align: right;
+        margin-right: 0.5rem;
+
+    }
+
+    .togglebtn {
+        background: #084cdf;
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+
     nav .create {
         display: flex;
         align-items: center;
@@ -684,6 +720,7 @@ input[type=file]::file-selector-button:hover {
         gap: 0;
     }
 
+
     main .container .left {
         grid-column: 3/4;
         position: fixed;
@@ -692,20 +729,6 @@ input[type=file]::file-selector-button:hover {
     }
 
     /* ---------------- NOTIFICATION POP UP ----------------- */
-
-    .left .notifications-popup {
-        position: absolute;
-        left: -20rem;
-        width: 20rem;
-    }
-
-    .left .notifications-popup::before {
-        display: absolute;
-        top: 1.3rem;
-        left: calc(20rem - 0.6rem);
-        display: block;
-    }
-
     main .container .middle {
         grid-column: 1/3;
     }
