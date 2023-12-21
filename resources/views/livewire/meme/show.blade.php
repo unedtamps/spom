@@ -12,7 +12,7 @@
                                 </div>
                                 <div class="info">
                                     <h3>{{ $meme->user->name }}</h3>
-                                    <small>{{ (new DateTime($meme->updated_at))->format('d F Y h:i A') }}</small>
+                                    <small>{{ (new DateTime($meme->created_at))->format('d F Y h:i A') }}</small>
                                 </div>
                             </div>
                         </a>
