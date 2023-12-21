@@ -35,7 +35,7 @@
                 <h3>Add Origin</h3>
             </x-nav-link>
             <a class="menu-item" href="{{ route('about') }}">
-                <span><i class="uil uil-compass menus"></i></span>
+                <span><i class="uil uil-books menus"></i></span>
                 <h3>About</h3>
             </a>
 
