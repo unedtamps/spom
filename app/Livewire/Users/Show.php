@@ -54,12 +54,13 @@ class Show extends Component
     {
         $this->id = request()->query('id', 1);
         $this->user = User::where('id', $this->id)->get()->first();
+        if(!$this->user) $this->user = User::find(1);
         $this->get_like = DB::select("select count(*) as jumlah_like from users u inner join memes m on m.user_id = u.id inner join meme_likes ml on ml.meme_id = m.id where u.id = ?", [$this->id])[0]->jumlah_like;
     }
 
     public function render()
     {
         return view('livewire.users.show')
-            ->title('User | ' . $this->user->name);
+            ->title('User | ' . $this->user ?? 'Not Found');
     }
 }
