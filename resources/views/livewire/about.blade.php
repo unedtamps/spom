@@ -54,6 +54,9 @@
 
             </li>
         </ol>
+        <p style="margin: 0">Unedo Tampubolon (5025221116) and Jonathan Purba (5025221132)</p>
+        <p style="margin: 0 0 1rem 0">Kuliah Pemrograman Web Jurusan Teknik Informatika ITS (2023). Dosen: Imam Kuswardayan,
+            S.Kom, M.T</p>
     </div>
     <a href="{{ route('home') }}" style="text-decoration: none">
         <span style="padding: 0.4rem 2rem; background-color: white; border-radius: 1rem">Back</span>
