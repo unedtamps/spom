@@ -61,6 +61,6 @@ class Show extends Component
     public function render()
     {
         return view('livewire.users.show')
-            ->title('User | ' . $this->user ?? 'Not Found');
+            ->title('User | ' . $this->user->name);
     }
 }
