@@ -1,0 +1,31 @@
+networks:
+  spom-net:
+    driver: bridge
+services:
+  db:
+    container_name: spom-db
+    image: mysql
+    environment:
+      MYSQL_USER: spom
+      MYSQL_PASSWORD: MemeOrigin2021!
+      MYSQL_DATABASE: meme
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    ports:
+      - 3306:3306
+    networks:
+      - spom-net
+    command: ["mysqld", "--bind-address=0.0.0.0"]
+  app:
+    container_name: spom-app
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - spom-net
+    depends_on:
+      - db
+    ports:
+      - 9090:8080
