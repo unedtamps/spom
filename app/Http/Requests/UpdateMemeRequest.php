@@ -11,18 +11,14 @@ class UpdateMemeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            //
+            'pic' => 'nullable|image|max:1024',
+            'title' => 'required|max:255',
         ];
     }
 }

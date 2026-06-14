@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('origin_submissions', function (Blueprint $table) {
@@ -16,9 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('origin_id')->unsigned()->nullable();
-            $table->longText('about');
-            $table->longText('origin_story');
-            $table->longText('spread');
+            $table->longText('content');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
@@ -26,9 +21,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('origin_submissions');

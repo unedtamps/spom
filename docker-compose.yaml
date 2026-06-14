@@ -4,7 +4,7 @@ networks:
 services:
   db:
     container_name: spom-db
-    image: mysql
+    image: mysql:8.0
     environment:
       MYSQL_USER: spom
       MYSQL_PASSWORD: MemeOrigin2021!

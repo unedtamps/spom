@@ -28,3 +28,5 @@ Route::get('/check-database', function () {
         return "Unable to connect to the database. Error: " . $e->getMessage();
     }
 });
+
+Route::get('/search', \App\Http\Controllers\Api\SearchController::class);
