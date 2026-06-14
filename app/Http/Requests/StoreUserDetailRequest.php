@@ -11,18 +11,16 @@ class StoreUserDetailRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|min:8|string',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8|max:255',
+            'username' => 'required|unique:users|regex:/^[^\s]+$/',
         ];
     }
 }

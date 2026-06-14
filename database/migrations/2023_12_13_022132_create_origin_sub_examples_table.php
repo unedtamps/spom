@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
+    {
+        // Removed — images are now inline in Markdown content
+    }
+
+    public function down(): void
     {
         Schema::create('origin_sub_examples', function (Blueprint $table) {
             $table->string('example', 64);
@@ -18,13 +20,5 @@ return new class extends Migration
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->foreign('origin_submission_id')->references('id')->on('origin_submissions')->cascadeOnDelete();
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('origin_sub_examples');
     }
 };

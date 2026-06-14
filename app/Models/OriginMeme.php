@@ -11,9 +11,7 @@ class OriginMeme extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'about',
-        'spread',
-        'origin_story',
+        'content',
     ];
     public function contributors(): HasMany
     {
@@ -21,10 +19,6 @@ class OriginMeme extends Model
     }
     public function submissions(): HasMany
     {
-        return $this->hasMany(OriginSubmission::class, 'user_id');
-    }
-    public function examples(): HasMany
-    {
-        return $this->hasMany(OriginExample::class, 'origin_id');
+        return $this->hasMany(OriginSubmission::class, 'origin_id');
     }
 }

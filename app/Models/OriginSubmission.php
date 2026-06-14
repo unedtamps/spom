@@ -12,9 +12,7 @@ class OriginSubmission extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'about',
-        'spread',
-        'origin_story',
+        'content',
         'origin_id',
         'user_id'
     ];
@@ -22,12 +20,8 @@ class OriginSubmission extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function origins(): BelongsTo
+    public function origin(): BelongsTo
     {
         return $this->belongsTo(OriginMeme::class, 'origin_id');
-    }
-    public function example_sub(): HasMany
-    {
-        return $this->hasMany(OriginSubExample::class, 'origin_submission_id');
     }
 }

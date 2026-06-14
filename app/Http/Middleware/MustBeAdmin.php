@@ -19,7 +19,7 @@ class MustBeAdmin
         if(!Auth::check()){
             return redirect(route('login'));
         }
-        if (Auth::user()->role === 'admin')
+        if (strtolower(Auth::user()->role) === 'admin')
             return $next($request);
 
         return redirect(route('home'));

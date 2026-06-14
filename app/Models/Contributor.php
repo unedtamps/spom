@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Contributor extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
         'origin_id',
